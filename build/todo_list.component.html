@@ -1,0 +1,12 @@
+<div class="todo-list">
+    <ul class="tips">
+        <li *ngFor="let tip of tips"
+        [routerLink]="['/todo_list', tip.id]">
+        <span class="badge">{{tip.id}}</span> {{tip.detail}}
+        <button class="operate-more" >●●●</button>
+        </li>
+    </ul>
+    <button class="add-tip" data-toggle="modal" data-target="#myModal">+</button>
+</div>
+<add-tip></add-tip>
+<!--<tip-edit [tip]=selectedTip></tip-edit>-->

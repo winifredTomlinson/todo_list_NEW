@@ -1,26 +1,27 @@
-import { Component } from '@angular/core';
-
-export class Hero {
-  id: number;
-  name: string;
-}
-
+import { Component, OnInit} from '@angular/core';
+// import {Tip} from './tip';
+// import { TipService } from './tip.service';
 @Component({
   selector: 'my-app',
   template: `
-    <h1>{{title}}</h1>
-    <h2>{{hero.name}} details!</h2>
-    <div><label>id: </label>{{hero.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="hero.name" placeholder="name">
-    </div>
-    `
+    <h2>My List</h2>
+    <router-outlet></router-outlet>   
+    `,
+    // providers: [TipService]
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
+  // tips : Tip[];
+  // selectedTip: Tip;
+
+  // constructor(private tipService: TipService) { }
+
+
+  // ngOnInit(): void{
+  //   this.tipService.getTips().then(tips => this.tips = tips);
+  // }
+  // onSelect(tip: Tip): void {
+  //   this.selectedTip = tip;
+  // }
 }
+
+
