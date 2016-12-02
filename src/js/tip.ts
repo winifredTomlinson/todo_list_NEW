@@ -1,4 +1,7 @@
 export class Tip{
     id: number;
-    detail: string;
+    name: string;
+    state: boolean;
+    expirationTime: string;
+    description: string;
 }

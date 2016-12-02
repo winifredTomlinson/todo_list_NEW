@@ -1,13 +1,15 @@
 <div *ngIf="tip" class="tip-chart">
     <div class="tip-chart-content">
-        <div class="tip-title">{{tip.detail}}</div>
+        <div class="tip-title">{{tip.name}}</div>
         <div class="chart-detail">
             <div><label>id:</label>{{tip.id}}</div>
-            <div>
-            <label>name: </label>
-            <input [(ngModel)]="tip.detail" placeholder="name"/>
-            <div><label>desciption: </label>{{tip.id}}</div>
-        </div>
+            <div><label>state:</label>
+                <span *ngIf="tip.state" class="state-done">已完成</span>
+                <span *ngIf="!tip.state" class="state-not-done">未完成</span>
+            </div>
+            <div><label>expiration time: </label>{{tip.expirationTime}}</div>
+            <label>description: </label>
+            <textarea [(ngModel)]="tip.name" placeholder="name"></textarea>
         </div>
     </div>
 </div>

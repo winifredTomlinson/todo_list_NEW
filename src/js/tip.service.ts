@@ -12,9 +12,14 @@ export class TipService{
     return this.getTips()
                .then(tips => tips.find(tip => tip.id === id));
     }
-    setTip(id: number, detail: string, Tip: Tip){
+
+    getState(id: number){
+        let checked = true;
+        
+    }
+    setTip(id: number, name: string, Tip: Tip){
         Tip.id = id;
-        Tip.detail = detail;
+        Tip.name = name;
         TIPS.push(Tip);
     }
 

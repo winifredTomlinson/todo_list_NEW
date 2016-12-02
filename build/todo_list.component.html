@@ -1,12 +1,15 @@
 <div class="todo-list">
     <ul class="tips">
-        <li *ngFor="let tip of tips"
-        [routerLink]="['/todo_list', tip.id]">
-        <span class="badge">{{tip.id}}</span> {{tip.detail}}
-        <button class="operate-more" >●●●</button>
+        <li *ngFor="let tip of tips">
+        <input class="tip-check-box" type="checkbox" id={{tip.id}}>
+        <div class="tip-name" [routerLink]="['/todo_list', tip.id]">
+            {{tip.name}}
+        </div>
+        <button class="operate-more" data-toggle="modal" data-target="#moreOperateModal">●●●</button>
         </li>
     </ul>
-    <button class="add-tip" data-toggle="modal" data-target="#myModal">+</button>
+    <button class="add-tip" data-toggle="modal" data-target="#addModal">+</button>
 </div>
 <add-tip></add-tip>
+<more-oparetion></more-oparetion>
 <!--<tip-edit [tip]=selectedTip></tip-edit>-->

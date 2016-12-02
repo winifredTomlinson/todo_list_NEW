@@ -70,13 +70,20 @@ button :focus {
   border: 1px solid #ccc;
   border-bottom: none;
   border-radius: 4px;
+  padding-left: 45px;
+}
+.tips li .tip-name {
+  width: 90%;
+  height: 100%;
 }
 .tips .operate-more {
   position: absolute;
   top: 50%;
-  margin-top: -10px;
+  margin-top: -37px;
   line-height: 100%;
-  right: 25px;
+  right: 0;
+  width: 10%;
+  height: 100%;
   color: #959595;
 }
 .add-tip {
@@ -114,4 +121,38 @@ button :focus {
 }
 .chart-detail {
   margin-top: 10px;
+}
+.state-done {
+  color: limegreen;
+}
+.state-not-done {
+  color: red;
+}
+.operate-modal .modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  -webkit-transform: translate(0, 125%);
+  -ms-transform: translate(0, 125%);
+  -o-transform: translate(0, 125%);
+  transform: translate(0, 125%);
+}
+.operate-modal .modal.in.modal-dialog {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  -webkit-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  -o-transform: translate(0, 100%);
+  transform: translate(0, 100%);
+}
+.tip-check-box {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  margin-top: -10px;
+  left: 10px;
 }
