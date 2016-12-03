@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/todo_list', pathMatch: 'full' },
   { path: 'todo_list',  component: TodolistComponent },
   { path: 'todo_list/:id',  component: TipDetailComponent },
-  // { path: 'todo_list/add-tip',  component: AddTipComponent },
-  // { path: 'todo_list/more-operation',  component: MoreOperationComponent }
+  { path: 'todo_list/add-tip',  component: AddTipComponent },
+  { path: 'todo_list/more-operation',  component: MoreOperationComponent }
   
 ];
 

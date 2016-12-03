@@ -17,6 +17,25 @@ export class TipService{
         let checked = true;
         
     }
+    clickCheckBox(id: number){
+        let flag = false;
+        if(!flag){
+            flag = true;
+        }else{
+            flag = false;
+        }
+   
+        console.log(flag);
+        return TIPS[id].state = flag;
+        
+         // this.getTip(id)
+        // .then(check => Tip[] = flag)
+    }
+    deleteTip(id: number){
+        return this.getTips()
+               .then(del => {TIPS.splice(id-1, 1);
+                   console.log(TIPS)});
+    }
     setTip(id: number, name: string, Tip: Tip){
         Tip.id = id;
         Tip.name = name;
