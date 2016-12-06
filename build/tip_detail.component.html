@@ -8,8 +8,7 @@
                 <span *ngIf="!tip.state" class="state-not-done">未完成</span>
             </div>
             <div><label>expiration time: </label>{{tip.expirationTime}}</div>
-            <label>description: </label>
-            <textarea [(ngModel)]="tip.name" placeholder="name"></textarea>
+            <label>description: </label>{{tip.description}}
         </div>
     </div>
 </div>

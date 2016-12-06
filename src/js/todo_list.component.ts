@@ -5,13 +5,17 @@ import { TipService } from './tip.service';
 
 @Component({
   selector: 'my-app',
-  templateUrl: '/todo_list.component.html'
+  templateUrl: '/todo_list.component.html',
 })
+
 export class TodolistComponent implements OnInit {
 
   tips: Tip[] = [];
   tip: Tip;
   constructor(private tipService: TipService) { }
+  reNew(){
+    this.tipService.reNew();
+  }
   clickCheckBox(id: number){
     this.tipService.clickCheckBox(id);
   }

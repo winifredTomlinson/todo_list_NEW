@@ -8,12 +8,14 @@ import { Tip } from './tip';
 import { TipService } from './tip.service';
 @Component({
     selector: 'my-app',
-    templateUrl: 'tip_detail.component.html',
+    templateUrl: 'edit_tip.component.html',
 })
 
-export class TipDetailComponent implements OnInit {
+export class EditTipComponent implements OnInit {
   @Input()
   tip: Tip;
+  newTip: Tip;
+  
   constructor(
     private tipService: TipService,
     private route: ActivatedRoute,
@@ -24,7 +26,10 @@ export class TipDetailComponent implements OnInit {
    ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.tipService.getTip(+params['id']))
-      .subscribe(tip => this.tip = tip);
+      .subscribe(tip => {this.tip = tip;
+      this.newTip = this.tip;  
+      });
+      
   }
 
   // goBack(): void {
