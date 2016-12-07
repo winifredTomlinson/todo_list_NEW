@@ -13,7 +13,7 @@
             <textarea [(ngModel)]="newTip.description" placeholder="description"></textarea>
         </div>
     </div>
-    <button type="button" class="btn btn-default" [routerLink]="['/todo_list']">取消
+    <button type="button" class="btn btn-default" [routerLink]="['/todo_list']" (click)="noSave(newTip.id,newTip)">取消
     </button>
     <button type="button" class="btn btn-primary" [routerLink]="['/todo_list']" (click)="setTip(tip.name, tip.expirationTime, tip.description)">
         保存

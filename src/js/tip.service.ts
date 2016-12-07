@@ -12,9 +12,9 @@ export class TipService{
     return this.getTips()
                .then(tips => tips.find(tip => tip.id === id));
     }
-    reNew(){
+    reNew(): Promise<Tip>{
         var tip = new Tip; 
-        console.log(tip);
+        return Promise.resolve(tip);
     }
     clickCheckBox(id: number){
         let flag = TIPS[id-1].state;
@@ -23,9 +23,7 @@ export class TipService{
         }else{
             flag = false;
         }
-   
-        console.log(flag);
-        console.log(id);
+
         return TIPS[id-1].state = flag;
         
          // this.getTip(id)
@@ -41,33 +39,25 @@ export class TipService{
                    }
                 TIPS.splice(id-1, 1);});
     }
-    // newTip(Tip: Tip){
-    //     return this.newTip()
-    //             .then(newTIP =>);
-    // }
-    setTip(name: string, expirationTime:string, description:string){
-        //  return this.getTips()
-        //        .then(newTip => {
-        //         let id = TIPS.length + 1;
-        //         tip.id = id;
-        //         tip.name = name;
-        //         tip.expirationTime = expirationTime;
-        //         tip.description = description;
-        //         TIPS.push(tip);
-        //         console.log(tip);
-        //        });
+    setTip(notice: boolean,name: string, expirationTime:string, description:string){
             let tip = new Tip;
-            let id = TIPS.length + 1;
-            tip.id = id;
-            tip.name = name;
-            tip.expirationTime = expirationTime;
-            tip.description = description;
-            TIPS.push(tip);
-            tip = new Tip;
-            console.log(TIPS);
+            if(name == undefined||name == ''){
+                notice = true;
+            }else{
+                let id = TIPS.length + 1;
+                tip.id = id;
+                tip.name = name;
+                tip.expirationTime = expirationTime;
+                tip.description = description;
+                TIPS.push(tip);
+                return notice;
+                
+            }
     }
-    // noSave(newTip: Tip, tip: Tip){
-    //     newTip = tip;
-    // }
+    noSave(id: number, tip2: Tip){
+        this.getTips(); 
+        TIPS[id-1] = tip2;
+        console.log(TIPS[id-1]);
+    }
 
 }

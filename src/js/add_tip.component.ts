@@ -9,20 +9,26 @@ import { TodolistComponent } from './todo_list.component';
 export class AddTipComponent implements OnInit {
   @Input()
   tips: Tip[] = [];
-  tip: Tip;
+  addTip: Tip;
   // reNew(){
   //   this.reNew = TodolistComponent.caller(reNew);
   // }
   constructor(private tipService: TipService) {
-    console.log();
+    
    }
   setTip(name: string, expirationTime:string, description:string){
-    // this.tip = new Tip;
-    this.tipService.setTip(name,expirationTime,description); 
+    let notice = false;
+    this.tipService.setTip(notice,name,expirationTime,description); 
+    if(notice){
+      this.addTip = new Tip;
+    }
+  }
+  close(){
+     this.addTip = new Tip;
   }
   ngOnInit(): void{
     // this.tip = tip;
-    this.tip = new Tip;
-    
+    this.tipService.reNew().then(reNewTip => {this.addTip = new Tip;
+      });;
   }
 }
