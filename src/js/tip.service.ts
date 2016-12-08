@@ -12,6 +12,10 @@ export class TipService{
     return this.getTips()
                .then(tips => tips.find(tip => tip.id === id));
     }
+    getId(id: number){
+        let editId = id;
+        return editId;
+    }
     reNew(): Promise<Tip>{
         var tip = new Tip; 
         return Promise.resolve(tip);
@@ -39,8 +43,9 @@ export class TipService{
                    }
                 TIPS.splice(id-1, 1);});
     }
-    setTip(notice: boolean,name: string, expirationTime:string, description:string){
+    setTip(name: string, expirationTime:string, description:string){
             let tip = new Tip;
+            let notice = false;
             if(name == undefined||name == ''){
                 notice = true;
             }else{
@@ -50,9 +55,8 @@ export class TipService{
                 tip.expirationTime = expirationTime;
                 tip.description = description;
                 TIPS.push(tip);
-                return notice;
-                
             }
+                return notice;                          
     }
     noSave(id: number, tip2: Tip){
         this.getTips(); 

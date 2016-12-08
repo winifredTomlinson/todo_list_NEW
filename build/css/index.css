@@ -145,26 +145,6 @@ div textarea {
 .state-not-done {
   color: red;
 }
-.operate-modal .modal.fade .modal-dialog {
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  -moz-transition: -moz-transform 0.3s ease-out;
-  -o-transition: -o-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  -webkit-transform: translate(0, 125%);
-  -ms-transform: translate(0, 125%);
-  -o-transform: translate(0, 125%);
-  transform: translate(0, 125%);
-}
-.operate-modal .modal.in.modal-dialog {
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  -moz-transition: -moz-transform 0.3s ease-out;
-  -o-transition: -o-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  -webkit-transform: translate(0, 100%);
-  -ms-transform: translate(0, 100%);
-  -o-transform: translate(0, 100%);
-  transform: translate(0, 100%);
-}
 .tip-check-box {
   position: absolute;
   width: 20px;
@@ -178,4 +158,7 @@ div textarea {
 }
 .box-active {
   background-color: #55abed;
+}
+.hide {
+  display: none;
 }

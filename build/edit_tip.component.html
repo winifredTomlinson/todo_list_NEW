@@ -1,4 +1,4 @@
-<div *ngIf="newTip" class="tip-chart">
+<div *ngIf="newTip" class="tip-chart" [id] = editId>
     <div class="tip-chart-content">
         <div>
             <label>事件名: </label>
@@ -15,7 +15,7 @@
     </div>
     <button type="button" class="btn btn-default" [routerLink]="['/todo_list']" (click)="noSave(newTip.id,newTip)">取消
     </button>
-    <button type="button" class="btn btn-primary" [routerLink]="['/todo_list']" (click)="setTip(tip.name, tip.expirationTime, tip.description)">
+    <button type="button" class="btn btn-primary" [routerLink]="['/todo_list']">
         保存
     </button>
 </div>

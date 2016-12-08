@@ -42,7 +42,7 @@ import { TipService } from './tip.service';
 
 
   export class EditTipComponent implements OnInit {
-  @Input()
+  @Input() id:number;
   tips: Tip[] = [];
   tips2: Tip[] = [];
   tip: any;
@@ -55,7 +55,7 @@ import { TipService } from './tip.service';
     private location: Location
   ) { }
   noSave(id: number){
-    let tip2 =  {id: 1, name: "写日报", state: false, expirationTime: "2016-12-30", description: "每天的日报反映了当天的学习、工作情况，应该及时完成"};
+    let tip2 =  this.tip;
     //  this.tipService.getTips().then(tips => {this.tips = tips;
     //    tip2 = tips[id-1];
     //     console.log(tip2);
@@ -66,13 +66,17 @@ import { TipService } from './tip.service';
   }
 
    ngOnInit(): void {
+      this.tipService.getTips().then(tips => {this.tips = tips;
+        this.tips2[0]=this.tips[0];
+        console.log(this.tips[0]);
+      });
     this.route.params
       .switchMap((params: Params) => this.tipService.getTip(+params['id']))
       .subscribe(tip => {
       const tip1 = tip;
-      this.newTip = tip;
+      this.newTip = tip1;
       this.tip = tip1;
-      console.log(tip1);
+      
       });
     // this.tipService.getTips().then(tips => {this.tips = tips;
     //   for(let i = 0; i < tips.length; i++)

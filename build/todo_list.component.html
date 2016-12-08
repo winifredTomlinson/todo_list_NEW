@@ -5,12 +5,13 @@
         <div class="tip-name" [routerLink]="['/todo_list', tip.id]">
             {{tip.name}}
         </div>
-        <button class="operate-more" [routerLink]="['/todo_list/more-operation', tip.id]" data-toggle="modal" data-target="#moreOperateModal">●●●</button>
+        <button class="operate-more"  data-toggle="modal" data-target="#moreOperateModal" (click)="getId(tip.id,editId)">●●●</button>
         </li>
     </ul>
     <button class="add-tip" data-toggle="modal" data-target="#addModal" (click)="reNew()">+</button>
 </div>
 <router-outlet></router-outlet>
 <add-tip></add-tip>
-<more-oparetion></more-oparetion>
+<more-oparetion [id] = editId></more-oparetion>
 <!--<tip-edit [tip]=selectedTip></tip-edit>-->
+<!--[routerLink]="['/todo_list/more-operation', tip.id]"-->

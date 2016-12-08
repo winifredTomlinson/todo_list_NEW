@@ -1,6 +1,8 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import { MaterialModule } from '@angular/material';
 
 import { AppComponent }  from './app.component';
 import { TodolistComponent }  from './todo_list.component';
@@ -17,7 +19,9 @@ import { AppRoutingModule }     from './app_routing.module';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule.forRoot()
+    // MaterialModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -25,7 +29,7 @@ import { AppRoutingModule }     from './app_routing.module';
     TipDetailComponent,
     EditTipComponent,
     AddTipComponent,
-    MoreOperationComponent
+    MoreOperationComponent,
   ],
   providers: [ TipService ],
   bootstrap: [ AppComponent ]
