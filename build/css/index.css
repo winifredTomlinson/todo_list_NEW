@@ -71,6 +71,11 @@ div textarea {
 .todo-list {
   position: relative;
   width: 100%;
+  margin: 40px 0;
+}
+.list-title {
+  width: 60%;
+  margin: 0 auto;
 }
 .tips {
   cursor: pointer;
@@ -117,11 +122,12 @@ div textarea {
   font-weight: 500;
 }
 .tip-chart {
-  width: 100%;
+  width: 60%;
   text-align: center;
+  margin: 0 auto;
 }
 .tip-chart .tip-chart-content {
-  width: 60%;
+  width: 100%;
   text-align: left;
   display: inline-block;
   padding: 20px 30px 50px;
@@ -142,7 +148,8 @@ div textarea {
 .state-done {
   color: limegreen;
 }
-.state-not-done {
+.state-not-done,
+.tip-notice {
   color: red;
 }
 .tip-check-box {
@@ -161,4 +168,11 @@ div textarea {
 }
 .hide {
   display: none;
+}
+.operate-modal .select {
+  cursor: pointer;
+}
+.edit-button {
+  margin-top: 20px;
+  text-align: right;
 }

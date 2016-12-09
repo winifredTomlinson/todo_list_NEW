@@ -1,5 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, Input, OnInit } from '@angular/core';
+import { LocalStorageService } from 'angular-2-local-storage';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { TIPS } from './mock_tips';
@@ -31,7 +32,7 @@ import { TipService } from './tip.service';
 //     this.route.params
 //       .switchMap((params: Params) => this.tipService.getTip(+params['id']))
 //       .subscribe(tip => {
-//       this.tip = tip; 
+//       this.tip = tip;
 //       this.newTip = this.tip; 
 //       var tip1 = this.newTip;
 //       console.log(tip1);
@@ -52,30 +53,36 @@ import { TipService } from './tip.service';
   constructor(
     private tipService: TipService,
     private route: ActivatedRoute,
-    private location: Location
-  ) { }
+    private location: Location,
+    private localStorageService: LocalStorageService
+    
+  ) {
+     
+      
+   }
   noSave(id: number){
-    let tip2 =  this.tip;
+    this.tip =  this.localStorageService.get('tip11');
     //  this.tipService.getTips().then(tips => {this.tips = tips;
     //    tip2 = tips[id-1];
     //     console.log(tip2);
     //   });
-    console.log(tip2);
+    console.log(this.tip);
 
-    this.tipService.noSave(id, tip2);
+    this.tipService.noSave(id, this.tip);
   }
 
    ngOnInit(): void {
-      this.tipService.getTips().then(tips => {this.tips = tips;
-        this.tips2[0]=this.tips[0];
-        console.log(this.tips[0]);
-      });
+      // this.tipService.getTips().then(tips => {this.tips = tips;
+      //   this.tips2[0]=TIPS[0];
+      //   console.log(TIPS[0]);
+      // });
     this.route.params
       .switchMap((params: Params) => this.tipService.getTip(+params['id']))
       .subscribe(tip => {
-      const tip1 = tip;
-      this.newTip = tip1;
-      this.tip = tip1;
+      this.tip = tip;
+      this.localStorageService.set('tip11',tip);        
+      this.newTip =  this.tip;
+      this.tip = tip;
       
       });
     // this.tipService.getTips().then(tips => {this.tips = tips;

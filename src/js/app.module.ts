@@ -1,4 +1,5 @@
 import { NgModule }      from '@angular/core';
+import { LocalStorageService, LOCAL_STORAGE_SERVICE_CONFIG } from 'angular-2-local-storage';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -15,6 +16,12 @@ import { TipService }          from './tip.service';
 
 import { AppRoutingModule }     from './app_routing.module';
 
+let localStorageServiceConfig = {
+    prefix: 'my-app',
+    storageType: 'sessionStorage'
+};
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -26,12 +33,15 @@ import { AppRoutingModule }     from './app_routing.module';
   declarations: [
     AppComponent,
     TodolistComponent,
+    // OnChangesComponent,
     TipDetailComponent,
     EditTipComponent,
     AddTipComponent,
     MoreOperationComponent,
   ],
-  providers: [ TipService ],
+  providers: [ TipService,LocalStorageService ,   {
+            provide: LOCAL_STORAGE_SERVICE_CONFIG, useValue: localStorageServiceConfig
+        }],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

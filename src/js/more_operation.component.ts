@@ -1,5 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 import {Directive, Component, Input, OnInit } from '@angular/core';
+import { LocalStorageService } from 'angular-2-local-storage';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 
@@ -18,16 +19,21 @@ export class MoreOperationComponent implements OnInit{
     @Input() id:number;
     tips: Tip[] = [];
     tip: Tip;
-    tipEdit:number;
+    tipEdit:any;
    
         constructor(
         private tipService: TipService,
         private route: ActivatedRoute,
-        private location: Location
-    ) {}
+        private location: Location,
+        private localStorageService: LocalStorageService
+    ) {
+        // this.tipEdit = this.id;
+        // console.log(this.tipEdit);      
+    }
     editDetail(){
-        this.tipEdit = this.id;
-        console.log(this.tipEdit);
+        // this.tipEdit = this.localStorageService.get('tip12');
+        // this.tipEdit = 1;
+        // console.log(this.tipEdit);
     }
     deleteTip(id: number){
         let tipId = this.id;
@@ -39,8 +45,10 @@ export class MoreOperationComponent implements OnInit{
     //   .switchMap((params: Params) => this.tipService.getTip(+params['id']))
     //   .subscribe(tip => this.tip = tip);
         this.tipService.reNew().then(reNewTip => {this.tip = new Tip;
+            this.tipEdit = this.id;
             this.tip.id = this.tipEdit;
-            console.log(this.tip.id);
+            console.log(this.id);
+            // this.localStorageService.set('tip12',1);  
       });
   }
 
