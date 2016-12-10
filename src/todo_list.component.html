@@ -1,3 +1,4 @@
+<!--tip list页面-->
 <div class="todo-list">
     <ul class="tips">
         <li *ngFor="let tip of tips">
@@ -10,10 +11,7 @@
     </ul>
     <button class="add-tip" data-toggle="modal" data-target="#addModal" (click)="reNew()">+</button>
 
-<router-outlet></router-outlet>
-<add-tip></add-tip>
-<more-oparetion [id] = editId></more-oparetion>
-
+    <router-outlet></router-outlet>
+    <add-tip></add-tip>
+    <more-oparetion [id] = editId></more-oparetion>
 </div>
-<!--<tip-edit [tip]=selectedTip></tip-edit>-->
-<!--[routerLink]="['/todo_list/more-operation', tip.id]"-->

@@ -1,3 +1,5 @@
+//tip详情 component
+
 import 'rxjs/add/operator/switchMap';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -20,14 +22,10 @@ export class TipDetailComponent implements OnInit {
     private location: Location
   ) {}
 
-
+//根据url参数获取tip
    ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.tipService.getTip(+params['id']))
       .subscribe(tip => this.tip = tip);
   }
-
-  // goBack(): void {
-  //   this.location.back();
-  // }
 }

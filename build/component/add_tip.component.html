@@ -1,3 +1,5 @@
+<!--添加tip的弹框页面-->
+
 <div class="add-tip-modal" *ngIf="addTip" >
 	<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -37,18 +39,3 @@
 	</div>
 </div>
 <script src="./jquery-3.1.1.min.js"></script>
-
-<!--<template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <h4 class="modal-title">Modal title</h4>
-  </div>
-  <div class="modal-body">
-    <p>One fine body&hellip;</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-  </div>
-</template>-->

@@ -1,3 +1,5 @@
+//mock  tip列表数据
+
 import { Tip } from './tip';
 
 export const TIPS: Tip[] = [

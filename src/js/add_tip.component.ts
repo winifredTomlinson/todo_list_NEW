@@ -1,8 +1,9 @@
+// 添加tip
+
 import { Component, Input, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {NgbModalBackdrop} from './modal_backdrop';
 import { MaterialModule } from '@angular/material';
-// import {MdDialogRef} from './dialog_ref';
 
 
 import { Tip } from './tip';
@@ -12,6 +13,8 @@ import { TodolistComponent } from './todo_list.component';
   selector: 'add-tip',
   templateUrl: '/component/add_tip.component.html'
 })
+
+// 定义添加页面的component
 export class AddTipComponent implements OnInit {
   @Input()
   tips: Tip[] = [];
@@ -23,48 +26,24 @@ export class AddTipComponent implements OnInit {
   ) {
     
    }
+
+  //  添加功能
   setTip(name: string, expirationTime:string, description:string){
 
     this.notice = this.tipService.setTip(name,expirationTime,description); 
     if(!this.notice){
       this.addTip = new Tip;
-      //  console.log(document.getElementById('#a'));
     }
   }
+
+  // 关闭按钮
   close(){
      this.addTip = new Tip;
   }
+
+  // 初始化时tip信息为空
   ngOnInit(): void{
-    // this.tip = tip;
     this.tipService.reNew().then(reNewTip => {this.addTip = new Tip;
       });;
   }
 }
-
-  
-
- 
-
-// export class NgbdModalBasic {
-//   closeResult: string;
-
-//   constructor(private modalService: NgbModal) {}
-
-//   open(content: any) {
-//     this.modalService.open(content).result.then((result) => {
-//       this.closeResult = `Closed with: ${result}`;
-//     }, (reason) => {
-//       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-//     });
-//   }
-
-//   private getDismissReason(reason: any): string {
-//     if (reason === ModalDismissReasons.ESC) {
-//       return 'by pressing ESC';
-//     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-//       return 'by clicking on a backdrop';
-//     } else {
-//       return  `with: ${reason}`;
-//     }
-//   }
-// }

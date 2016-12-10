@@ -4,22 +4,32 @@ import { TIPS } from './mock_tips';
 
 @Injectable()
 export class TipService{
+
+    // 获取tip 列表
     getTips():Promise<Tip[]>{
         return Promise.resolve(TIPS);
     }
 
+
+    // 根据id获取tip
     getTip(id: number): Promise<Tip> {
     return this.getTips()
                .then(tips => tips.find(tip => tip.id === id));
     }
+
+    //获取id
     getId(id: number){
         let editId = id;
         return editId;
     }
+
+    //新建一个空tip
     reNew(): Promise<Tip>{
         var tip = new Tip; 
         return Promise.resolve(tip);
     }
+
+    //已完成或未完成功能
     clickCheckBox(id: number){
         let flag = TIPS[id-1].state;
         if(!flag){
@@ -29,10 +39,9 @@ export class TipService{
         }
 
         return TIPS[id-1].state = flag;
-        
-         // this.getTip(id)
-        // .then(check => Tip[] = flag)
     }
+
+    //删除功能
     deleteTip(id: number){
         return this.getTips()
                .then(del => {
@@ -43,6 +52,8 @@ export class TipService{
                    }
                 TIPS.splice(id-1, 1);});
     }
+
+    //新增tip功能（事件名为必填）
     setTip(name: string, expirationTime:string, description:string){
             let tip = new Tip;
             let notice = false;
@@ -58,6 +69,8 @@ export class TipService{
             }
                 return notice;                          
     }
+
+    //编辑页面时不保存
     noSave(id: number, tip2: Tip){
         this.getTips(); 
         TIPS[id-1] = tip2;

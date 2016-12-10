@@ -8,6 +8,8 @@ import { EditTipComponent }  from './edit_tip.component';
 import { MoreOperationComponent }  from './more_operation.component';
 import { AddTipComponent }  from './add_tip.component';
 
+
+//定义路由URL
 const routes: Routes = [
   { path: '', redirectTo: '/todo_list', pathMatch: 'full' },
   { path: 'todo_list',  component: TodolistComponent },

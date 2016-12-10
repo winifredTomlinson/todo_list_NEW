@@ -1,3 +1,5 @@
+//更多操作 component
+
 import 'rxjs/add/operator/switchMap';
 import {Directive, Component, Input, OnInit } from '@angular/core';
 import { LocalStorageService } from 'angular-2-local-storage';
@@ -20,35 +22,31 @@ export class MoreOperationComponent implements OnInit{
     tips: Tip[] = [];
     tip: Tip;
     tipEdit:any;
+    
    
-        constructor(
+    constructor(
         private tipService: TipService,
         private route: ActivatedRoute,
         private location: Location,
         private localStorageService: LocalStorageService
-    ) {
-        // this.tipEdit = this.id;
-        // console.log(this.tipEdit);      
-    }
+    ) { }
+
+    //返回点击tip的id
     editDetail(){
-        // this.tipEdit = this.localStorageService.get('tip12');
-        // this.tipEdit = 1;
-        // console.log(this.tipEdit);
+        this.tipEdit = this.id;
+        return this.tipEdit;
     }
-    deleteTip(id: number){
+
+    //删除tip
+    deleteTip(){
         let tipId = this.id;
         this.tipService.deleteTip(tipId);
-        //   .then(reload => window.location.reload());
     }
+
    ngOnInit(): void {
-    // this.route.params
-    //   .switchMap((params: Params) => this.tipService.getTip(+params['id']))
-    //   .subscribe(tip => this.tip = tip);
-        this.tipService.reNew().then(reNewTip => {this.tip = new Tip;
-            this.tipEdit = this.id;
-            this.tip.id = this.tipEdit;
-            console.log(this.id);
-            // this.localStorageService.set('tip12',1);  
+        this.tipService.reNew().then(reNewTip => {
+            this.tip = new Tip;
+            this.tip.id = this.id;
       });
   }
 
